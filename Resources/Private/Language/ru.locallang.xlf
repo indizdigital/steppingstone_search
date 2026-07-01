@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="de" target-language="ru" datatype="plaintext" original="messages" date="2016-08-03T09:00:45Z" product-name="phi_indexedsearch">
+		<header/>
+		<body>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext">
+				<target>Fulltext</target>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext.title">
+				<target>Title</target>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext.subtitle">
+				<target>Subtitle</target>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext.alltext">
+				<target>Alltext</target>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext.pagelink">
+				<target>Pagelink</target>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext.search">
+				<target>Search</target>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext.noresults">
+				<target>No results</target>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext.noresultsFor">
+				<target>No results for</target>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext.resultsfor">
+				<target><![CDATA[Results for '%s']]></target>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext.foundWords">
+				<target><![CDATA[Found words: ]]></target>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext.howisrated">
+				<target><![CDATA[100% means: all words have been found in title and content. A word found in the title counts double.]]></target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

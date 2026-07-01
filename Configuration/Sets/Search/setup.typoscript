@@ -1,0 +1,25 @@
+
+config.typolinkEnableLinksAcrossDomains = 1
+
+plugin.tx_phiindexedsearch {
+	view {
+		templateRootPaths.0 = {$plugin.tx_phiindexedsearch.view.templateRootPath}
+		partialRootPaths.0 = {$plugin.tx_phiindexedsearch.view.partialRootPath}
+		layoutRootPaths.0 = {$plugin.tx_phiindexedsearch.view.layoutRootPath}
+	}
+	persistence {
+		storagePid.data = field:uid
+	}
+	features {
+		# uncomment the following line to enable the new Property Mapper.
+		# rewrittenPropertyMapper = 1
+		requireCHashArgumentForActionArguments = 0
+	}
+	settings{
+		textCrop = 300
+		handleBR = <br/>
+		handleEndTags = <br/>
+		groupByPage = 1
+		markTextClasses = font-extrabold text-orange
+	}
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-08-03T09:00:45Z" product-name="phi_indexedsearch">
+		<header/>
+		<body>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext">
+				<source>Fulltext</source>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext.subtitle">
+				<source>Subtitle</source>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext.alltext">
+				<source>Alltext</source>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext.pagelink">
+				<source>Pagelink</source>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext.recorduid">
+				<source>Uid of the Record</source>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext.recordpid">
+				<source>Pid of the Record</source>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext.taskuid">
+				<source>Uid of the Task from the scheduler</source>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext.tstamp">
+				<source>TimeStamp</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

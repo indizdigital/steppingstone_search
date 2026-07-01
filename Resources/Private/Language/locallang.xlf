@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-08-03T09:00:45Z" product-name="phi_indexedsearch">
+		<header/>
+		<body>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext">
+				<source>Fulltext</source>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext.subtitle">
+				<source>Subtitle</source>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext.alltext">
+				<source>Alltext</source>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext.pagelink">
+				<source>Pagelink</source>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext.search">
+				<source>Suche</source>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext.noresults">
+				<source>Keine Ergebnisse</source>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext.noresultsFor">
+				<source>Keine Ergebnisse für</source>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext.resultsfor">
+				<source><![CDATA[Ergebnisse für «<span class="font-extrabold text-orange">%s</span>»]]></source>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext.foundWords">
+				<source><![CDATA[Gefundene Wörter: ]]></source>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch_domain_model_fulltext.howisrated">
+				<source><![CDATA[100% entspricht ein Resultat, falls alle Wörter sowohl im Titel als auch im Text einer Seite gefunden werden. Ein Wort, welches im Titel auftritt, zählt doppelt gegenüber jenen im Text.]]></source>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch.tasktitle">
+				<source>Phi Search Crawler Task</source>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch.taskdescription">
+				<source><![CDATA[The config is important to index Extension Content. See the available Config Options here (Each option has to be on one line, separated by Newline NOT BY ';' LIKE IN THIS DESCRIPTION):
+				table = tx_phicontentcontainer_domain_model_item;
+fields = title,teaser;
+titleField = title;
+addWhere = itemtype = 0 AND datum < UNIX_TIMESTAMP();
+extPrefix = tx_phicontentcontainer_contentcontainer;
+action = show;
+controller = item;
+entity = item;
+pid = 26;
+groupByPid = 1;
+languageSupport = 0
+relationField = contents;
+relationType = commaseparated;
+relationTable = tt_content;
+relationFields = bodytext;
+relationTitleField = title;
+relationAddWhere = datum < UNIX_TIMESTAMP();
+relationContentPage = 0;
+relationContentRelationField = contents;
+relationContentRelationType = commaseparated;
+relationContentRelationTable = tt_content;
+relationContentRelationFields = bodytext;
+relationContentRelationAddWhere = 1;
+relationAdditionalLinkParams = cardcontent = {uid};
+				]]>				</source>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch.taskconfig">
+				<source>Search Crawler Config</source>
+			</trans-unit>
+			<trans-unit id="tx_phiindexedsearch.taskconfigerror">
+				<source>Search Crawler Config Error</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,63 @@
+
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+
+<f:flashMessages  />
+<div class="phi-indexed-search space-y-10">
+    <f:form action="search" extensionName="phiindexedsearch" controller="Fulltext" pluginName="indexedsearch" method="post" class="tx_phiindexedsearch">
+        <div class="flex gap-3">
+            <div class="ndz-input-field flex-1">
+                <label class="tx-phiindexedsearch-label text-blue block hidden"><f:translate key='tx_phiindexedsearch_domain_model_fulltext.search' />:</label>
+                <f:form.textfield name="sword" value="{sword}" class="tx-phiindexedsearch py-2" placeholder="<f:translate key='tx_phiindexedsearch_domain_model_fulltext.search' />" />
+            </div>
+            <f:form.submit name="search" value="{f:translate(key: 'tx_phiindexedsearch_domain_model_fulltext.search')}" class="tx-phiindexedsearch-button ndz-btn" />
+        </div>
+    </f:form>
+    <f:if condition="{results}">
+    	<f:then>
+        	<div class="tx-phiindexedsearch-result-title"><f:format.raw><f:translate key="tx_phiindexedsearch_domain_model_fulltext.resultsfor" arguments="{0:'{sword}'}" /></f:format.raw>:</div>
+            <div class="space-y-10">
+                <f:for each="{results}" as="result">
+                    <div class="flex-1 space-y-2 xl:space-y-3" data-alltextuid="{result.uid}">
+                        <h2 class="ndz-headline-small space-y-2">
+                        <f:if condition="{result.pagelink.additionalParams}">
+                        <f:then>
+                            <f:link.typolink parameter="{result.pagelink.parameter}" additionalParams="{result.pagelink.additionalParams}"><f:format.raw>{result.title}</f:format.raw></f:link.typolink>
+                        </f:then>
+                        <f:else>
+                            <f:link.page pageUid="{result.pagelink.parameter}" class="pagelink"><f:format.raw>{result.title}</f:format.raw></f:link.page>
+                        </f:else>
+                        </f:if>
+                    </h2>
+                    <p><f:format.raw>{result.alltext}</f:format.raw></p>
+                    <p class="block text-orange"><f:translate key="tx_phiindexedsearch_domain_model_fulltext.foundWords"/>
+                        <f:for each="{result.foundWords}" as="fWord">
+                            <span class="fword">{fWord}</span>
+                        </f:for>
+                    </p>
+                    </div>
+                </f:for>
+            </div>
+        </f:then>
+        <f:else>
+            <f:if condition="{sword}">
+                <f:then>
+                    <div class="tx-phiindexedsearch-result-title"><f:translate key="tx_phiindexedsearch_domain_model_fulltext.noresultsFor" />: '{sword}'</div>
+                </f:then>
+            </f:if>
+        </f:else>
+    </f:if>
+</div>
+</f:section>
