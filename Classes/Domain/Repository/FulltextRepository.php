@@ -248,7 +248,7 @@ class FulltextRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 
 		//highlight words in title
 		$wrapper = "";
-		$resultTitle = $this->markWords($title,$foundTitleWords,false,$wrapper);
+		$resultTitle = $this->markWords($title,$foundTitleWords,false,$wrapper,false);
 		$result["title"] = $resultTitle;
 
 		//rate the result by date
@@ -334,18 +334,20 @@ class FulltextRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 	 * 
 	 * @return \array
 	 */
-	public function markWords($text,$fwords,$handleBR,$wrapper) {
-		$searchReplace = array();
-		foreach($fwords as $fword){
-			$searchReplace[ucfirst($fword)] = '<span class="' . $wrapper.'">'.ucfirst($fword) . '</span>';
-			$searchReplace[strtolower($fword)] = '<span class="' . $wrapper.'">'.strtolower($fword) . '</span>';
-			$searchReplace[strtoupper($fword)] = '<span class="' . $wrapper.'">'.strtoupper($fword) . '</span>';
+	public function markWords($text,$fwords,$handleBR,$wrapper,$mark = true) {
+		if($mark && !empty($fwords)){
+			$words = $fwords;
+			usort($words, function($a,$b){ return strlen($b) - strlen($a); });
+			$pattern = '/\b(' . implode('|', array_map(function($w){ return preg_quote($w,'/'); }, $words)) . ')\b/ui';
+			$text = preg_replace_callback($pattern, function($matches) use ($wrapper){
+				return '<span class="' . $wrapper . '">' . $matches[1] . '</span>';
+			}, $text);
 		}
+
 		if($handleBR){
-			$searchReplace["#BR#"] = $this->settings["handleBR"];
-			$searchReplace["#ET#"] = $this->settings["handleEndTags"];
+			$text = str_replace(array("#BR#","#ET#"), array($this->settings["handleBR"],$this->settings["handleEndTags"]), $text);
 		}
-		return str_replace(array_keys($searchReplace),array_values($searchReplace),$text);
+		return $text;
 	}
 
 	/**

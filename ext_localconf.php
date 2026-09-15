@@ -4,12 +4,12 @@
 	'PhiIndexedsearch',
 	'Indexedsearch',
 	array(
-		Phi\PhiIndexedsearch\Controller\FulltextController::class => 'search'
+		Phi\PhiIndexedsearch\Controller\FulltextController::class => 'search,results'
 
 	),
 	// non-cacheable actions
 	array(
-		Phi\PhiIndexedsearch\Controller\FulltextController::class => 'search',
+		Phi\PhiIndexedsearch\Controller\FulltextController::class => 'search,results',
 	)
 );
 

@@ -60,6 +60,25 @@ class FulltextController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
       if(isset($_POST["tx_phiindexedsearch_indexedsearch"]) && isset($_POST["tx_phiindexedsearch_indexedsearch"]["sword"])){
         $sword = $_POST["tx_phiindexedsearch_indexedsearch"]["sword"];
       }
+
+  		if(strlen($sword)){
+        $frontendUser = $this->request->getAttribute('frontend.user');
+        $frontendUser->setKey('ses', 'sword', $sword);
+        $frontendUser->storeSessionData();
+      }
+        return $this->redirect('results');
+    }
+
+    /**
+     * action results
+     *
+     * @return void
+     */
+    public function resultsAction()
+    {
+      $frontendUser = $this->request->getAttribute('frontend.user');
+      $sword = $frontendUser->getKey('ses', 'sword');
+
   		if(strlen($sword)){
   			$this->renderResults($sword);
         $this->fulltextRepository->updateSearchWords($sword);
